@@ -1,5 +1,5 @@
 {% set name = "meshio" %}
-{% set version = "3.2.12" %}
+{% set version = "3.2.14" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 925b10a27ad2eafcc731bb808625504c1c9d0a4e1fda19d2acbdfd1f39b4a290
+  sha256: 771afd7cbc695527dd9af44b6d38cc7a361fc145214e2aa9213716d4627ba445
 
 build:
   noarch: python
@@ -35,10 +35,20 @@ test:
   commands:
     - meshio-convert --help
     - meshio-info --help
+  requires:
+    - pytest
+    - netCDF4
+    - h5py
+    - lxml
+  source_files:
+    - test
+  commands:
+    - cd test && python -m pytest
 
 about:
   home: "https://github.com/nschloe/meshio"
   license: MIT
+  license_file: LICENSE.txt
   license_family: MIT
   summary: "I/O for various mesh formats"
 
