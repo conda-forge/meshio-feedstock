@@ -1,5 +1,5 @@
 {% set name = "meshio" %}
-{% set version = "3.2.12" %}
+{% set version = "2.3.10" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,23 +7,22 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 925b10a27ad2eafcc731bb808625504c1c9d0a4e1fda19d2acbdfd1f39b4a290
+  sha256: f2e3a6017d79273b3f5815273584970f32a97eb71035ba2a26d30a27325b6467
 
 build:
   noarch: python
   number: 0
   entry_points:
-    - meshio-convert = meshio._cli:convert
-    - meshio-info = meshio._cli:info
+    - meshio-convert = meshio.cli:main
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python >=3
+    - python <3
     - pip
     - setuptools
   run:
-    - python >=3
+    - python <3
     - numpy
     - netCDF4
     - h5py
@@ -34,7 +33,6 @@ test:
     - meshio
   commands:
     - meshio-convert --help
-    - meshio-info --help
 
 about:
   home: "https://github.com/nschloe/meshio"
