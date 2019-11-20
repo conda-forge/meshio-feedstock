@@ -35,6 +35,15 @@ test:
   commands:
     - meshio-convert --help
     - meshio-info --help
+  requires:
+    - pytest
+    - netCDF4
+    - h5py
+    - lxml
+  source_files:
+    - test
+  commands:
+    - cd test && python -m pytest
 
 about:
   home: "https://github.com/nschloe/meshio"
