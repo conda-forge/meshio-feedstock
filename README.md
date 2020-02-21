@@ -117,6 +117,6 @@ Feedstock Maintainers
 =====================
 
 * [@MuellerSeb](https://github.com/MuellerSeb/)
-* [@nschloe](https://github.com/nschloe/)
 * [@banesullivan](https://github.com/banesullivan/)
+* [@nschloe](https://github.com/nschloe/)
 
