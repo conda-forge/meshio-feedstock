@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - meshio-convert = meshio._cli:convert
     - meshio-info = meshio._cli:info
@@ -30,11 +30,6 @@ requirements:
     - lxml
 
 test:
-  imports:
-    - meshio
-  commands:
-    - meshio-convert --help
-    - meshio-info --help
   requires:
     - pytest
     - netCDF4
@@ -42,7 +37,11 @@ test:
     - lxml
   source_files:
     - test
+  imports:
+    - meshio
   commands:
+    - meshio-convert --help
+    - meshio-info --help
     - cd test && python -m pytest
 
 about:
