@@ -1,21 +1,21 @@
 {% set name = "meshio" %}
-{% set version = "4.0.4" %}
+{% set version = "4.0.10" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: b7cd8aa5bf21caa8874c60aa7d05bf03207623703c498b75cbb95333a8bb6873
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b5b300d36905395234b7a75273d97341548dc0db77412b6b27193c9dca91ab01
 
 build:
   noarch: python
-  number: 1
+  number: 0
   entry_points:
     - meshio-convert = meshio._cli:convert
     - meshio-info = meshio._cli:info
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -45,11 +45,11 @@ test:
     - cd test && python -m pytest
 
 about:
-  home: "https://github.com/nschloe/meshio"
+  home: https://github.com/nschloe/meshio
   license: MIT
   license_file: LICENSE.txt
   license_family: MIT
-  summary: "I/O for various mesh formats"
+  summary: I/O for various mesh formats
 
 extra:
   recipe-maintainers:
