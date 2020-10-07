@@ -5,11 +5,9 @@ Home: https://github.com/nschloe/meshio
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/meshio-feedstock/blob/master/LICENSE.txt)
 
 Summary: I/O for various mesh formats
-
-
 
 Current build status
 ====================
