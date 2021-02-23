@@ -13,7 +13,11 @@ build:
   noarch: python
   number: 0
   entry_points:
+    - meshio-ascii = meshio._cli:ascii
+    - meshio-binary = meshio._cli:binary
+    - meshio-compress = meshio._cli:compress
     - meshio-convert = meshio._cli:convert
+    - meshio-decompress = meshio._cli:decompress
     - meshio-info = meshio._cli:info
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -30,6 +34,7 @@ requirements:
 
 test:
   requires:
+    - exdown
     - pytest
     - netCDF4
     - h5py
@@ -38,7 +43,11 @@ test:
   imports:
     - meshio
   commands:
+    - meshio-ascii --help
+    - meshio-binary --help
+    - meshio-compress --help
     - meshio-convert --help
+    - meshio-decompress --help
     - meshio-info --help
     - cd test && python -m pytest
 
