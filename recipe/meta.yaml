@@ -1,5 +1,5 @@
 {% set name = "meshio" %}
-{% set version = "4.3.9" %}
+{% set version = "4.3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0179b9bfd6c793c17091d37c6811e6831e98c82834f4928beabc8d95f84c5b79
+  sha256: 71bab954d83951f67af53e1b6aeb6c76fbbf6cf7403e9a7fb40db0b5d05c64c4
 
 build:
   noarch: python
   number: 0
   entry_points:
+    - meshio-ascii = meshio._cli:ascii
+    - meshio-binary = meshio._cli:binary
+    - meshio-compress = meshio._cli:compress
     - meshio-convert = meshio._cli:convert
+    - meshio-decompress = meshio._cli:decompress
     - meshio-info = meshio._cli:info
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -30,6 +34,7 @@ requirements:
 
 test:
   requires:
+    - exdown
     - pytest
     - netCDF4
     - h5py
@@ -38,7 +43,11 @@ test:
   imports:
     - meshio
   commands:
+    - meshio-ascii --help
+    - meshio-binary --help
+    - meshio-compress --help
     - meshio-convert --help
+    - meshio-decompress --help
     - meshio-info --help
     - cd test && python -m pytest
 
