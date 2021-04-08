@@ -1,5 +1,5 @@
 {% set name = "meshio" %}
-{% set version = "4.3.10" %}
+{% set version = "4.3.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 71bab954d83951f67af53e1b6aeb6c76fbbf6cf7403e9a7fb40db0b5d05c64c4
+  sha256: 159883fdb7bd4cbda20955eb7bc26e565221a07a9a5c66fad500a2ad663d8149
 
 build:
   noarch: python
