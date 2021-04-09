@@ -39,6 +39,7 @@ test:
     - netCDF4
     - h5py
   source_files:
+    - README.md
     - test
   imports:
     - meshio
