@@ -40,7 +40,7 @@ test:
     - h5py
   source_files:
     - README.md
-    - test
+    - tests
   imports:
     - meshio
   commands:
@@ -50,7 +50,7 @@ test:
     - meshio-convert --help
     - meshio-decompress --help
     - meshio-info --help
-    - cd test && python -m pytest
+    - python -m pytest
 
 about:
   home: https://github.com/nschloe/meshio
